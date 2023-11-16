@@ -1,0 +1,99 @@
+.TH HSH 1
+
+.SH NAME
+hsh \- command interpreter (shell)
+
+.SH SYNOPSIS
+.PP
+.B ./hsh
+
+
+.SH DESCRIPTION
+The simple shell is  command line interpreter (CLI) that comunicate the user with the system kernel in that way the user can execute programs, handle data and the hardrive of the machine
+
+.SH BUILTINS
+Builtin commands are supported:
+
+.RE
+.B exit
+
+.RE
+.B env
+
+.RE
+.B cd
+
+.SH Examples
+.RE
+.B Input:
+.br
+env
+.RE
+.B Output:
+
+.br
+SESSION_MANAGER=local/jaime-Inspiron-3442:@/tmp/.ICE-unix/2897,unix/jaime-Inspiron-3442:/tmp/.ICE-unix/2897
+.br
+XDG_SESSION_ID=c2
+.br
+XDG_SEAT=seat0
+.br
+DISPLAY=:0
+.br
+UNITY_DEFAULT_PROFILE=unity
+.br
+UPSTART_JOB=unity7
+.br
+JOB=unity-settings-daemon
+.br
+GNOME_KEYRING_CONTROL=
+.br
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+.br
+DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path
+.br
+QT_QPA_PLATFORMTHEME=appmenu-qt5
+.br
+LOGNAME=****
+.br
+INSTANCE=
+.br
+SHELL=/usr/bin/zsh
+.br
+IM_CONFIG_PHASE=1
+.br
+QT4_IM_MODULE=xim
+.br
+CLUTTER_IM_MODULE=xim
+.br
+XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
+.br
+SESSION=ubuntu
+.br
+XDG_MENU_PREFIX=gnome-
+.br
+...
+
+.RE
+.B Input:
+.br
+exit
+.RE
+.B Output:
+.br
+shutdown the terminal
+
+.RE
+.B Input:
+.br
+cd
+.RE
+.B Output:
+.br
+change the path
+
+.SH AUTHOR
+Writen by Daniel Castano and Jaime Velez
+
+.SH SEE ALSO
+man sh
