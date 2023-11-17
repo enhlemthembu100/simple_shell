@@ -1,4 +1,27 @@
+#include <stdlib.h>
+#include <string.h>
 #include "holberton.h"
+
+/**
+ * _strdup - Duplicate a string.
+ * @str: String to duplicate.
+ *
+ * Return: Pointer to the duplicated string.
+ */
+char *_strdup(const char *str)
+{
+    size_t len = strlen(str) + 1;
+    char *dup_str = malloc(len);
+
+    if (dup_str == NULL)
+    {
+        perror("Fatal Error");
+        exit(1);
+    }
+
+    strcpy(dup_str, str);
+    return dup_str;
+}
 
 /**
  * main - Entry point for the shell program
@@ -10,18 +33,18 @@
  */
 int main(int argc, char **argv, char **env)
 {
-	char **newenv;
+    char **newenv;
 
-	/* Assuming you have a function to initialize your shell environment */
-	newenv = read_env(env);
+    /* Assuming you have a function to initialize your shell environment */
+    newenv = read_env(env);
 
-	/* Placeholder for the rest of your shell logic */
-	/* Replace this with your actual shell implementation */
+    /* Placeholder for the rest of your shell logic */
+    /* Replace this with your actual shell implementation */
 
-	/* Don't forget to free the allocated memory when you're done */
-	free_env(newenv);
+    /* Don't forget to free the allocated memory when you're done */
+    free_env(newenv);
 
-	return (0);
+    return (0);
 }
 
 /**
@@ -32,21 +55,21 @@ int main(int argc, char **argv, char **env)
  */
 char **read_env(char **env)
 {
-	char **newenv = NULL;
-	size_t i;
+    char **newenv = NULL;
+    size_t i;
 
-	for (i = 0; env[i] != NULL; i++)
-		;
-	newenv = malloc(sizeof(char *) * (i + 1));
-	if (newenv == NULL)
-	{
-		perror("Fatal Error");
-		exit(1);
-	}
-	for (i = 0; env[i] != NULL; i++)
-		newenv[i] = _strdup(env[i]);
-	newenv[i] = NULL;
-	return (newenv);
+    for (i = 0; env[i] != NULL; i++)
+        ;
+    newenv = malloc(sizeof(char *) * (i + 1));
+    if (newenv == NULL)
+    {
+        perror("Fatal Error");
+        exit(1);
+    }
+    for (i = 0; env[i] != NULL; i++)
+        newenv[i] = _strdup(env[i]);
+    newenv[i] = NULL;
+    return (newenv);
 }
 
 /**
@@ -57,10 +80,9 @@ char **read_env(char **env)
  */
 void free_env(char **env)
 {
-	unsigned int i;
+    unsigned int i;
 
-	for (i = 0; env[i] != NULL; i++)
-		free(env[i]);
-	free(env);
+    for (i = 0; env[i] != NULL; i++)
+        free(env[i]);
+    free(env);
 }
-
