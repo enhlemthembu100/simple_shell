@@ -1,12 +1,35 @@
 #include "holberton.h"
 
 /**
- * read_env - allocate memory space to pass it to the main function
- * @env: environment passed to main
+ * main - Entry point for the shell program
+ * @argc: Number of arguments
+ * @argv: Array of argument strings
+ * @env: Array of environment variables
  *
- * Return: pointer to the new environment
+ * Return: Exit status
  */
+int main(int argc, char **argv, char **env)
+{
+	char **newenv;
 
+	/* Assuming you have a function to initialize your shell environment */
+	newenv = read_env(env);
+
+	/* Placeholder for the rest of your shell logic */
+	/* Replace this with your actual shell implementation */
+
+	/* Don't forget to free the allocated memory when you're done */
+	free_env(newenv);
+
+	return (0);
+}
+
+/**
+ * read_env - Allocate memory space to pass it to the main function
+ * @env: Environment passed to main
+ *
+ * Return: Pointer to the new environment
+ */
 char **read_env(char **env)
 {
 	char **newenv = NULL;
@@ -27,12 +50,11 @@ char **read_env(char **env)
 }
 
 /**
- * free_env - frees the memory previously allocated
- * @env: shell's environment vbles
+ * free_env - Frees the memory previously allocated
+ * @env: Shell's environment variables
  *
  * Return: void
  */
-
 void free_env(char **env)
 {
 	unsigned int i;
@@ -41,3 +63,4 @@ void free_env(char **env)
 		free(env[i]);
 	free(env);
 }
+
