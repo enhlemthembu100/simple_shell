@@ -1,82 +1,43 @@
-#include <stdlib.h>
-#include <string.h>
 #include "holberton.h"
 
-char *_strdup(const char *str)
-{
-    size_t len = strlen(str) + 1;
-    char *dup_str = malloc(len);
-
-    if (dup_str == NULL)
-    {
-        perror("Fatal Error");
-        exit(1);
-    }
-
-    strcpy(dup_str, str);
-    return dup_str;
-}
-
 /**
- * main - Entry point for the shell program
- * @argc: Number of arguments
- * @argv: Array of argument strings
- * @env: Array of environment variables
+ * read_env - allocate memory space to pass it to the main function
+ * @env: environment passed to main
  *
- * Return: Exit status
+ * Return: pointer to the new environment
  */
-int main(int argc, char **argv, char **env)
-{
-    char **newenv;
 
-    /* Assuming you have a function to initialize your shell environment */
-    newenv = read_env(env);
-
-    /* Placeholder for the rest of your shell logic */
-    /* Replace this with your actual shell implementation */
-
-    /* Don't forget to free the allocated memory when you're done */
-    free_env(newenv);
-
-    return (0);
-}
-
-/**
- * read_env - Allocate memory space to pass it to the main function
- * @env: Environment passed to main
- *
- * Return: Pointer to the new environment
- */
 char **read_env(char **env)
 {
-    char **newenv = NULL;
-    size_t i;
+	char **newenv = NULL;
+	size_t i;
 
-    for (i = 0; env[i] != NULL; i++)
-        ;
-    newenv = malloc(sizeof(char *) * (i + 1));
-    if (newenv == NULL)
-    {
-        perror("Fatal Error");
-        exit(1);
-    }
-    for (i = 0; env[i] != NULL; i++)
-        newenv[i] = _strdup(env[i]);
-    newenv[i] = NULL;
-    return (newenv);
+	for (i = 0; env[i] != NULL; i++)
+		;
+	newenv = malloc(sizeof(char *) * (i + 1));
+	if (newenv == NULL)
+	{
+		perror("Fatal Error");
+		exit(1);
+	}
+	for (i = 0; env[i] != NULL; i++)
+		newenv[i] = _strdup(env[i]);
+	newenv[i] = NULL;
+	return (newenv);
 }
 
 /**
- * free_env - Frees the memory previously allocated
- * @env: Shell's environment variables
+ * free_env - frees the memory previously allocated
+ * @env: shell's environment vbles
  *
  * Return: void
  */
+
 void free_env(char **env)
 {
-    unsigned int i;
+	unsigned int i;
 
-    for (i = 0; env[i] != NULL; i++)
-        free(env[i]);
-    free(env);
+	for (i = 0; env[i] != NULL; i++)
+		free(env[i]);
+	free(env);
 }
