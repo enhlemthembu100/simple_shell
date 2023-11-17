@@ -2,12 +2,6 @@
 #include <string.h>
 #include "holberton.h"
 
-/**
- * _strdup - Duplicate a string.
- * @str: String to duplicate.
- *
- * Return: Pointer to the duplicated string.
- */
 char *_strdup(const char *str)
 {
     size_t len = strlen(str) + 1;
